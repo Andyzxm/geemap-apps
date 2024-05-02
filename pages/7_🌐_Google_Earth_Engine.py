@@ -1,6 +1,5 @@
 import streamlit as st
 import ee
-pip install -r my_project/requirements.txt
 import watergeo.foliumap as watergeo
 
 markdown = """
