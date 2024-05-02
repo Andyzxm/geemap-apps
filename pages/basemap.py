@@ -1,19 +1,23 @@
 import streamlit as st
-import geemap.foliumap as geemap
+import watergeo.foliumap as watergeo
 
-st.title("Interactive Map")
+st.set_page_config(layout="wide")
 
-col1, col2 = st.columns([4, 1])
-options = list(geemap.basemaps.keys())
-index = options.index("OpenTopoMap")
+markdown = """
+Web App URL: <https://watergeo.streamlit.app/>
+GitHub Repository: <https://github.com/Andyzxm/webmap_template>
+"""
 
-with col2:
+st.sidebar.title("About")
+st.sidebar.info(markdown)
+logo = "https://images-platform.99static.com/7WcMmZPzGbVHYpeaib5FcOYR314=/100x100:900x900/500x500/top/smart/99designs-contests-attachments/122/122380/attachment_122380314"
+st.sidebar.image(logo)
 
-    basemap = st.selectbox("Select a basemap:", options, index)
+st.title("watergeo map")
 
+with st.expander("See source code"):
+    with st.echo():
+        m = watergeo.Map()
+        m.add_basemap("OpenTopoMap")
 
-with col1:
-
-    m = geemap.Map()
-    m.add_basemap(basemap)
-    m.to_streamlit(height=700)
+m.to_streamlit(height=700)
