@@ -7,3 +7,4 @@ nbserverproxy
 owslib
 watergeo
 ee
+streamlit_folium
