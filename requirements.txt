@@ -1,6 +1,5 @@
 geemap
 streamlit
-watergeo
 geopandas
 jupyter-server-proxy
 leafmap
