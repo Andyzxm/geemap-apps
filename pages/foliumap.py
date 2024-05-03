@@ -15,9 +15,17 @@ st.sidebar.image(logo)
 
 st.title("watergeo map")
 
+# List of available basemaps
+basemaps = ["OpenTopoMap", "OpenStreetMap", "Stamen Terrain", "Stamen Toner", "Stamen Watercolor", 
+            "CartoDB Positron", "CartoDB Dark Matter", "Esri WorldStreetMap", "Esri DeLorme", 
+            "Esri WorldTopoMap", "Esri WorldImagery", "Esri NatGeoWorldMap", "HikeBike HikeBike", 
+            "MtbMap", "CartoDB Voyager"]
+# Create a dropdown list of basemaps
+selected_basemap = st.selectbox('Select a basemap', basemaps)
+
 with st.expander("See source code"):
     with st.echo():
         m = watergeo.Map()
-        m.add_basemap("OpenTopoMap")
+        m.add_basemap(selected_basemap)
 
 m.to_streamlit(height=700)
